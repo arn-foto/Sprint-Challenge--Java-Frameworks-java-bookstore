@@ -1,5 +1,5 @@
 package com.lambdaschool.bookstore.config;
-//testing tesing 1 2 3
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,12 +22,12 @@ public class AuthorizationServerConfig
     /**
      * Client Id is the user name for the client application. It is read from the environment variable OAUTHCLIENTID
      */
-    static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
+    static final String CLIENT_ID = "lambda-client";  //System.getenv("OAUTHCLIENTID");
 
     /**
      * Client secret is the password for the client application. It is read from the environment variable OAUTHCLIENTSECRET
      */
-    static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET"); // read from environment variable
+    static final String CLIENT_SECRET = "lambda-secret"; //System.getenv("OAUTHCLIENTSECRET");
 
     /**
      * We are using username and password to authenticate a user
@@ -102,7 +102,7 @@ public class AuthorizationServerConfig
                 .withClient(CLIENT_ID)
                 .secret(encoder.encode(CLIENT_SECRET))
                 .authorizedGrantTypes(GRANT_TYPE_PASSWORD,
-                                      AUTHORIZATION_CODE)
+                        AUTHORIZATION_CODE)
                 .scopes(SCOPE_READ,
                         SCOPE_WRITE,
                         TRUST)
@@ -126,6 +126,6 @@ public class AuthorizationServerConfig
                 .authenticationManager(authenticationManager);
         // here instead of our clients requesting authentication at the endpoint /oauth/token, they request it at the endpoint /login
         endpoints.pathMapping("/oauth/token",
-                              "/login");
+                "/login");
     }
 }

@@ -36,7 +36,7 @@ public class BookController
     {
         List<Book> myBooks = bookService.findAll();
         return new ResponseEntity<>(myBooks,
-                                    HttpStatus.OK);
+                HttpStatus.OK);
     }
 
     // http://localhost:2019/books/book/{bookId}
@@ -48,7 +48,7 @@ public class BookController
     {
         Book s = bookService.findBookById(bookId);
         return new ResponseEntity<>(s,
-                                    HttpStatus.OK);
+                HttpStatus.OK);
     }
 
     // POST http://localhost:2019/books/book
@@ -68,8 +68,8 @@ public class BookController
         responseHeaders.setLocation(newBookURI);
 
         return new ResponseEntity<>(null,
-                                    responseHeaders,
-                                    HttpStatus.CREATED);
+                responseHeaders,
+                HttpStatus.CREATED);
     }
 
     // PUT http://localhost:2019/books/book/1
