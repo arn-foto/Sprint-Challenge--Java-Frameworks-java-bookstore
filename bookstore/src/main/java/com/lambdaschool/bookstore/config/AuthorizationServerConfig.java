@@ -1,5 +1,5 @@
 package com.lambdaschool.bookstore.config;
-
+//testing tesing 1 2 3
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
